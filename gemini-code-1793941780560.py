@@ -1,0 +1,765 @@
+html_content = '''<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홍대범 법률사무소 | 의뢰인의 권리를 지키는 법률 파트너</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-dark: #0a192f;
+            --primary-navy: #112240;
+            --accent-gold: #c5a059;
+            --accent-gold-light: #e6ca65;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --bg-light: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: #334155;
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        h1, h2, h3, h4, .serif-font {
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        /* Header Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .btn-consult-nav {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-consult-nav:hover {
+            background-color: var(--accent-gold-light);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.92) 0%, rgba(17, 34, 64, 0.88) 100%), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            height: 90vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-main);
+            padding: 0 1.5rem;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero-subtitle {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            word-break: keep-all;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            word-break: keep-all;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-gold-light);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1.05rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-divider {
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            margin: 0 auto;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+            border-color: var(--accent-gold);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(197, 160, 89, 0.1);
+            color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .feature-desc {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Practice Areas */
+        .practice {
+            padding: 5rem 2rem;
+            background-color: #f1f5f9;
+        }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .practice-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary-dark);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .practice-card:hover {
+            border-top-color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .practice-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .practice-card h3 i {
+            color: var(--accent-gold);
+        }
+
+        .practice-list {
+            list-style: none;
+        }
+
+        .practice-list li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .practice-list li::before {
+            content: "•";
+            color: var(--accent-gold);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Attorney Profile */
+        .attorney {
+            padding: 5rem 2rem;
+            background-color: #ffffff;
+        }
+
+        .attorney-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .attorney-img-box {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .attorney-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .attorney-info h3 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .attorney-title {
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: block;
+            font-size: 1.05rem;
+        }
+
+        .attorney-quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #334155;
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            background-color: #f8fafc;
+            padding: 1rem;
+        }
+
+        .history-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .history-list li {
+            margin-bottom: 0.6rem;
+            color: #475569;
+            display: flex;
+            gap: 10px;
+        }
+
+        .history-list li i {
+            color: var(--accent-gold);
+            margin-top: 5px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background-color: var(--primary-dark);
+            color: var(--text-main);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info-box h3 {
+            color: var(--text-main);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-box p {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary-navy);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            font-size: 1rem;
+            color: #e2e8f0;
+            margin-bottom: 0.2rem;
+        }
+
+        .info-text p {
+            color: #94a3b8;
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Form */
+        .contact-form-box {
+            background-color: var(--primary-navy);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background-color: var(--primary-dark);
+            border: 1px solid #334155;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 0.9rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-gold-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #050c1a;
+            color: #64748b;
+            padding: 2rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-title { font-size: 2.2rem; }
+            .attorney-wrapper, .contact-wrapper { grid-template-columns: 1fr; }
+            .nav-menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-scale-balanced" style="color: #c5a059;"></i>
+                홍대범 <span>법률사무소</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">사무소 소개</a></li>
+                <li><a href="#practice" class="nav-link">전문 분야</a></li>
+                <li><a href="#attorney" class="nav-link">변호사 소개</a></li>
+                <li><a href="#contact" class="nav-link">오시는 길</a></li>
+            </ul>
+            <a href="#contact" class="btn-consult-nav">상담 신청</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-subtitle">TRUSTED LEGAL PARTNER</span>
+            <h1 class="hero-title">의뢰인의 권리를 지키는<br>명확하고 확실한 법률 조력자</h1>
+            <p class="hero-desc">철저한 법리 분석과 치밀한 전략으로 가장 명확한 법률 솔루션을 제공합니다.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-primary">1:1 법률 상담 신청</a>
+                <a href="#practice" class="btn-outline">주요 업무 분야</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">WHY HONG DAE BEOM</span>
+                <h2 class="section-title">홍대범 법률사무소의 원칙</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h3 class="feature-title">철저한 법리 분석</h3>
+                    <p class="feature-desc">사건 초기 단계부터 판례 및 법리를 면밀하게 검토하여 발생 가능한 리스크를 사전 방지하고 이길 수 있는 전략을 수립합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-user-shield"></i></div>
+                    <h3 class="feature-title">1:1 맞춤 전담 대응</h3>
+                    <p class="feature-desc">사무장이 아닌 담당 변호사가 직접 사건을 처음부터 끝까지 수행하며, 의뢰인과의 긴밀한 소통을 최우선으로 합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <h3 class="feature-title">승소를 향한 솔루션</h3>
+                    <p class="feature-desc">복잡한 법적 분쟁 상황에서도 권익을 최대로 보장받으실 수 있도록 체계적인 맞춤형 변론 전략을 구사합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Areas -->
+    <section class="practice" id="practice">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">PRACTICE AREAS</span>
+                <h2 class="section-title">주요 전문 분야</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="practice-grid">
+                <div class="practice-card">
+                    <h3><i class="fa-solid fa-building-columns"></i> 민사 소송</h3>
+                    <ul class="practice-list">
+                        <li>손해배상 및 대여금 청구</li>
+                        <li>부동산 / 임대차 분쟁</li>
+                        <li>채권추심 및 보전처분</li>
+                        <li>계약서 검토 및 중재</li>
+                    </ul>
+                </div>
+                <div class="practice-card">
+                    <h3><i class="fa-solid fa-gavel"></i> 형사 변호</h3>
+                    <ul class="practice-list">
+                        <li>경제범죄 (사기, 배임, 횡령)</li>
+                        <li>수사단계 (경찰/검찰) 동석</li>
+                        <li>성범죄 및 보이스피싱 대응</li>
+                        <li>영장실질심사 및 보석 신청</li>
+                    </ul>
+                </div>
+                <div class="practice-card">
+                    <h3><i class="fa-solid fa-users"></i> 가사 / 상속</h3>
+                    <ul class="practice-list">
+                        <li>이혼 및 재산분할 청구</li>
+                        <li>양육권 / 양육비 청구 소송</li>
+                        <li>상속재산분할 및 유류분</li>
+                        <li>성년후견 및 상속포기</li>
+                    </ul>
+                </div>
+                <div class="practice-card">
+                    <h3><i class="fa-solid fa-briefcase"></i> 기업 법무</h3>
+                    <ul class="practice-list">
+                        <li>기업 정기 법률 자문</li>
+                        <li>노사 분쟁 및 근로기준법</li>
+                        <li>스타트업 및 정관 검토</li>
+                        <li>기업 관련 소송 대응</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attorney Profile -->
+    <section class="attorney" id="attorney">
+        <div class="container">
+            <div class="attorney-wrapper">
+                <div class="attorney-img-box">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80" alt="홍대범 변호사" class="attorney-img">
+                </div>
+                <div class="attorney-info">
+                    <span class="section-tag">ATTORNEY PROFILE</span>
+                    <h3>홍대범 대표변호사</h3>
+                    <span class="attorney-title">법무법인 / 홍대범 법률사무소</span>
+                    <div class="attorney-quote">
+                        "정직함과 실력으로 의뢰인의 가장 든든한 법률 조력자가 되겠습니다."
+                    </div>
+                    <p style="color:#64748b; font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        의뢰인의 아픔과 난관을 가장 깊이 이해하며, 최신 판례와 명확한 법리적 근거를 바탕으로 최고의 결과를 도출하기 위해 매 순간 정성을 다합니다.
+                    </p>
+                    <ul class="history-list">
+                        <li><i class="fa-solid fa-check"></i> 변호사 시험 합격</li>
+                        <li><i class="fa-solid fa-check"></i> 아주대학교 법학전문대학원 졸업</li>
+                        <li><i class="fa-solid fa-check"></i> 현) 홍대범 법률사무소 대표변호사</li>
+                        <li><i class="fa-solid fa-check"></i> 민사·형사·기업분쟁 전담 변호</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Form Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info-box">
+                    <span class="section-tag">CONTACT US</span>
+                    <h3>비밀보장 1:1 상담 안내</h3>
+                    <p>어려운 법률 문제, 혼자 고민하지 마시고 전문가와 상담하세요.<br>모든 상담 내용은 엄격히 비밀이 보장됩니다.</p>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="info-text">
+                            <h4>사무실 위치</h4>
+                            <p>서울특별시 서초구 반포대로 (서초동)</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="info-text">
+                            <h4>대표 전화</h4>
+                            <p>02-1234-5678 (평일 09:00 ~ 18:00)</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="info-text">
+                            <h4>이메일 문의</h4>
+                            <p>contact@honglaw.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-box">
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">성함</label>
+                            <input type="text" id="name" class="form-control" placeholder="성함을 입력해주세요" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">연락처</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="010-0000-0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">분야 선택</label>
+                            <select id="category" class="form-control">
+                                <option value="민사">민사 소송</option>
+                                <option value="형사">형사 변호</option>
+                                <option value="가사">가사 / 상속</option>
+                                <option value="기업">기업 법무</option>
+                                <option value="기타">기타 상담</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">상담 내용</label>
+                            <textarea id="message" class="form-control" placeholder="상담받으실 개략적인 내용을 작성해 주세요." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">상담 예약 신청하기</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>홍대범 법률사무소</strong> | 사업자등록번호: 000-00-00000 | 대표변호사: 홍대범</p>
+            <p style="margin-top: 0.5rem; color: #475569;">© 2026 Hong Dae Beom Law Office. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(name + ' 님, 상담 신청이 정상적으로 접수되었습니다. 확인 후 신속히 연락드리겠습니다.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
+'''
+
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("index.html 파일 생성이 완료되었습니다.")
